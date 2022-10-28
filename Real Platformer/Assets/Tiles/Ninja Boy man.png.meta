@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1e3c5604a50ffad46805cf7ce61f4e54
+guid: a5657d9d9f14178449d1b389318e0919
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 33
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ground_0
+      name: Ninja Boy man_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 33
-        height: 33
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b0ad1b8f1f4b90428e0c448935e1f6c
-      internalID: 1513276797
+      spriteID: 259c5d5754960d440b1f1400354fa7d1
+      internalID: 530125732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_1
+      name: Ninja Boy man_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 16
         y: 0
-        width: 33
-        height: 33
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd609237703a0254c9fad5a2004beb15
-      internalID: 1287351319
+      spriteID: 7dc6d786960bf4d46b0a651595e5870f
+      internalID: -776983323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_2
+      name: Ninja Boy man_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 32
         y: 0
-        width: 33
-        height: 33
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9e2e1be2d03d994e8ab9614b215287a
-      internalID: -1729009840
+      spriteID: ed21aa006b17df143880d51d2a5962db
+      internalID: 1576118581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_3
+      name: Ninja Boy man_3
       rect:
         serializedVersion: 2
-        x: 99
+        x: 48
         y: 0
-        width: 33
-        height: 33
+        width: 16
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,29 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7724dd477b56bfd4e800f0082eea4f70
-      internalID: 873742200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground_4
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 0
-        width: 33
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17f1f204949046548bd79301edf12872
-      internalID: 1786584690
+      spriteID: c0820d41adff3e942ba24d56861b94f5
+      internalID: 2077419876
       vertices: []
       indices: 
       edges: []
@@ -232,11 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ground_3: 873742200
-      Ground_0: 1513276797
-      Ground_4: 1786584690
-      Ground_2: -1729009840
-      Ground_1: 1287351319
+      Ninja Boy man_2: 1576118581
+      Ninja Boy man_0: 530125732
+      Ninja Boy man_3: 2077419876
+      Ninja Boy man_1: -776983323
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

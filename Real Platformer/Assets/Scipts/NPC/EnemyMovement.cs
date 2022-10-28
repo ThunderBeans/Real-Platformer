@@ -6,12 +6,10 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
     float moveSpeed = 5;
-    [SerializeField]
-    float jumPower = 10;
     Rigidbody2D rb;
-    bool canjump = false;
-    int direction = 0;// 0 recht 1 links
-
+    int direction = 0;// 0 rechts 1 links
+    [SerializeField]
+    float distance = 1.4f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,32 +30,28 @@ public class EnemyMovement : MonoBehaviour
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
         }
 
-
-        if (false && canjump == true)
-        {
-            rb.AddForce(Vector2.up * jumPower, ForceMode2D.Impulse);
-        }
-
-        if (direction) //ik wil hier code dat de enemy van kant wisselt as het x afstand weg is van de player
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        Debug.Log(collision.gameObject);
+        if (direction == 0 && collision.gameObject.CompareTag("Ground"))
         {
-            canjump = true;
+            Debug.Log(direction);
+            direction = 1;
+        }
+        // 0 is links 1 is rechts
+        if (direction == 1 && collision.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log(direction);
+            Invoke("dir_swap", distance);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
+
+    private void dir_swap()
         {
-            Invoke("SetCanJump", 0.05f);
+    direction = direction - direction;
         }
-    }
-    private void SetCanJump()
-    {
-        canjump = false;
-    }
 }

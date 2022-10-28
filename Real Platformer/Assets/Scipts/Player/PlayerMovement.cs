@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,18 +11,34 @@ public class PlayerMovement : MonoBehaviour
     float jumPower = 10;
     Rigidbody2D rb;
     bool canjump = false;
+    
+    private Animator anim;
 
-
-    // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
+
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            anim.SetBool("Walking", true);
+        }
 
 
         if (Input.GetButtonDown("Jump") && canjump == true)
