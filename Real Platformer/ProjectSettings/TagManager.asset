@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Wall1
   - Wall2
+  - Evil
   layers:
   - Default
   - TransparentFX

@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     [SerializeField]
     float moveSpeed = 5;
     [SerializeField]
     float jumPower = 10;
     Rigidbody2D rb;
     bool canjump = false;
-    
+    public float maxSpeed = 20f;
+
     private Animator anim;
 
     void Start()
@@ -25,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody2D>().velocity, maxSpeed);
+
         transform.Translate(Vector2.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
 
         if (Input.GetAxis("Horizontal") < 0)
@@ -49,6 +55,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Evil"))
+        {
+            transform.Translate(11f, 0f, 1f);
+        }
+
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             canjump = true;
@@ -59,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Invoke("SetCanJump", 0.05f);
+            Invoke("SetCanJump", 0.2f);
         }
     }
     private void SetCanJump()
