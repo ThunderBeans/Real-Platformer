@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     bool canjump = false;
     public float maxSpeed = 20f;
+    public Vector3 StartPosition;
 
     private Animator anim;
 
@@ -21,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         rb = GetComponent<Rigidbody2D>();
+
+        StartPosition = gameObject.transform.position;
 
     }
 
@@ -57,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Evil"))
         {
-            transform.Translate(11f, 0f, 1f);
+            transform.position = StartPosition;
         }
 
 

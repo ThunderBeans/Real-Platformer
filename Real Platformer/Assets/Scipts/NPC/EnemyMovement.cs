@@ -52,6 +52,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void dir_swap()
         {
-    direction = direction - direction;
+             direction = direction - direction;
         }
 }
