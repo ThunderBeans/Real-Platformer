@@ -9,6 +9,7 @@ TagManager:
   - Wall1
   - Wall2
   - Evil
+  - Flag
   layers:
   - Default
   - TransparentFX

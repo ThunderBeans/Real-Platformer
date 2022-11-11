@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     bool canjump = false;
     public float maxSpeed = 20f;
     public Vector3 StartPosition;
+    private Vector3 scaleChange;
 
     private Animator anim;
 
@@ -64,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
             transform.position = StartPosition;
         }
 
+        if (collision.gameObject.CompareTag("Flag"))
+        {
+            anim.SetBool("Campfire", true);
+            Invoke("scaleChanger", 0.5f);
+        }
 
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -75,11 +81,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Invoke("SetCanJump", 0.2f);
+            Invoke("SetCanJump",0);
         }
     }
     private void SetCanJump()
     {
         canjump = false;
+    }
+    private void scaleChanger()
+    {
+        scaleChange = new Vector3(1.3f, 1.3f, 1.0f);
+        transform.localScale = scaleChange;
     }
 }
