@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Flag"))
         {
             anim.SetBool("Campfire", true);
-            Invoke("scaleChanger", 0.5f);
+            Invoke("scaleChanger", 0.2f);
         }
 
         if (collision.gameObject.CompareTag("Ground"))
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Invoke("SetCanJump",0);
+            Invoke("SetCanJump",0.15f);
         }
     }
     private void SetCanJump()
