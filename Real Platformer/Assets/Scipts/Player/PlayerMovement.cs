@@ -92,5 +92,6 @@ public class PlayerMovement : MonoBehaviour
     {
         scaleChange = new Vector3(1.3f, 1.3f, 1.0f);
         transform.localScale = scaleChange;
+        maxSpeed = 2f;
     }
 }
