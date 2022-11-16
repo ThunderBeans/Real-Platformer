@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using UnityEngine;
+using static System.TimeZoneInfo;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed = 20f;
     public Vector3 StartPosition;
     private Vector3 scaleChange;
+    bool finish = false;
+    public Animator transition;
+    public float transitionTime = 1f;
 
     private Animator anim;
 
@@ -32,11 +37,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody2D>().velocity, maxSpeed);
 
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
+        if (finish == false) ;
+        {
+            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
+        }
 
         if (Input.GetAxis("Horizontal") < 0)
         {
@@ -67,8 +73,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Flag"))
         {
+            Invoke("LoadNextLevel",7f);
             anim.SetBool("Campfire", true);
             Invoke("scaleChanger", 0.2f);
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            finish = true;
         }
 
         if (collision.gameObject.CompareTag("Ground"))
@@ -81,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Invoke("SetCanJump",0.15f);
+            Invoke("SetCanJump", 0.15f);
         }
     }
     private void SetCanJump()
@@ -93,5 +103,18 @@ public class PlayerMovement : MonoBehaviour
         scaleChange = new Vector3(1.3f, 1.3f, 1.0f);
         transform.localScale = scaleChange;
         maxSpeed = 2f;
+    }
+    public void LoadNextLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
     }
 }

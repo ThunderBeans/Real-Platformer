@@ -35,16 +35,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
         if (direction == 0 && collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log(direction);
             direction = 1;
         }
         // 0 is links 1 is rechts
         if (direction == 1 && collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log(direction);
             Invoke("dir_swap", distance);
         }
     }
